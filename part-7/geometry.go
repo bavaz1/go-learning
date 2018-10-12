@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"golangbot/part-7/geometry/rectangle" //importing custom package
+	"golangbot/part-7/rectangle" //importing custom package
 	"log"
 )
 
