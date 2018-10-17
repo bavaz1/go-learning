@@ -18,6 +18,20 @@ func printarray(a [3][2]string) {
 	}
 }
 
+func subtactOne(numbers []int) {
+	for i := range numbers {
+		numbers[i] -= 2
+	}
+}
+
+func countries() []string {
+	countries := []string{"USA", "Singapore", "Germany", "India", "Australia"}
+	neededCountries := countries[:len(countries)-2]
+	countriesCpy := make([]string, len(neededCountries))
+	copy(countriesCpy, neededCountries) //copies neededCountries to countriesCpy
+	return countriesCpy
+}
+
 func main() {
 	// var a [3]int
 	// a[0] = 15
@@ -114,4 +128,58 @@ func main() {
 	fmt.Println("array after modification to slice nums1", numa)
 	nums2[1] = 101
 	fmt.Println("array after modification to slice nums2", numa) */
+
+	// Length and capacity of a slice
+	/* fruitarray := [...]string{"apple", "orange", "grape", "mango", "water melon", "pine apple", "chikoo"}
+	fruitslice := fruitarray[1:3]
+	fmt.Printf("length of slice %d capacity %d", len(fruitslice), cap(fruitslice)) //length of is 2 and capacity is 6 */
+
+	/* fruitarray := [...]string{"apple", "orange", "grape", "mango", "water melon", "pine apple", "chikoo"}
+	fruitslice := fruitarray[1:3]
+	fmt.Printf("length of slice %d capacity %d\n", len(fruitslice), cap(fruitslice)) //length of is 2 and capacity is 6
+	fruitslice = fruitslice[:cap(fruitslice)]                                        //re-slicing furitslice till its capacity
+	fmt.Println("After re-slicing length is", len(fruitslice), "and capacity is", cap(fruitslice)) */
+
+	/* i := make([]int, 5, 5)
+	fmt.Println(i) */
+
+	// Appending to a slice
+	// func append(s []T, x ...T) []T
+	/* cars := []string{"Ferrari", "Honda", "Ford"}
+	fmt.Println("cars:", cars, "has old length", len(cars), "and capacity", cap(cars)) //capacity of cars is 3
+	cars = append(cars, "Toyota")
+	fmt.Println("cars:", cars, "has new length", len(cars), "and capacity", cap(cars)) //capacity of cars is doubled to 6 */
+
+	/* var names []string //zero value of a slice is nil
+	if names == nil {
+		fmt.Println("slice is nil going to append")
+		names = append(names, "John", "Sebastian", "Vinay")
+		fmt.Println("names contents:", names)
+	} */
+
+	/* veggies := []string{"potatoes", "tomatoes", "brinjal"}
+	fruits := []string{"oranges", "apples"}
+	food := append(veggies, fruits...)
+	fmt.Println("food:", food) */
+
+	/* nos := []int{8, 7, 6}
+	fmt.Println("slice before function call", nos)
+	subtactOne(nos)                               //function modifies the slice
+	fmt.Println("slice after function call", nos) //modifications are visible outside */
+
+	/* pls := [][]string{
+		{"C", "C++"},
+		{"JavaScript"},
+		{"Go", "Rust"},
+	}
+	for _, v1 := range pls {
+		for _, v2 := range v1 {
+			fmt.Printf("%s ", v2)
+		}
+		fmt.Printf("\n")
+	} */
+
+	// Memory Optimisation
+	countriesNeeded := countries()
+	fmt.Println(countriesNeeded)
 }
